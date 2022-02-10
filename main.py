@@ -1,6 +1,7 @@
 from turtle import Turtle, Screen, tracer, done
 
 MUR = 1
+PIECE = 2
 TAILLE = 30
 OFFSETX = 31*TAILLE/2
 OFFSETY = 28*TAILLE/2
@@ -40,5 +41,7 @@ for line in range(len(game_terrain)):
         game_space.goto((column * TAILLE) - OFFSETX, (line * TAILLE) - OFFSETY)
         if game_terrain[line][column] == MUR:
             draw_square(game_space, TAILLE)
+        elif game_terrain[line][column] == PIECE:
+            game_space.dot(round(TAILLE/4), 'yellow')
 
 done()

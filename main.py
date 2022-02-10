@@ -42,6 +42,8 @@ for line in range(len(game_terrain)):
         if game_terrain[line][column] == MUR:
             draw_square(game_space, TAILLE)
         elif game_terrain[line][column] == PIECE:
+            game_space.goto((column * TAILLE) - OFFSETX + TAILLE/2, (line*TAILLE) - OFFSETY - TAILLE/2)
             game_space.dot(round(TAILLE/4), 'yellow')
+
 
 done()

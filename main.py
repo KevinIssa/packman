@@ -1,9 +1,11 @@
 from turtle import Turtle, Screen, tracer, done
 
 MUR = 1
+PIECE = 2
+PAC_GOMME = 4
 TAILLE = 30
 OFFSETX = 31*TAILLE/2
-OFFSETY = 28*TAILLE/2
+OFFSETY = -28*TAILLE/2 - 35
 
 
 def read_matrix(files):
@@ -37,8 +39,14 @@ game_terrain = read_matrix('packman_gamespace.txt')
 print(game_terrain)
 for line in range(len(game_terrain)):
     for column in range(len(game_terrain[line])):
-        game_space.goto((column * TAILLE) - OFFSETX, (line * TAILLE) - OFFSETY)
+        game_space.goto((column * TAILLE) - OFFSETX, -1 * (line * TAILLE) - OFFSETY)
         if game_terrain[line][column] == MUR:
             draw_square(game_space, TAILLE)
+        elif game_terrain[line][column] == PIECE:
+            game_space.goto((column * TAILLE) - OFFSETX + TAILLE/2, -1 * (line*TAILLE) - OFFSETY - TAILLE/2)
+            game_space.dot(round(TAILLE/4), 'yellow')
+        elif game_terrain[line][column] == PAC_GOMME:
+            game_space.goto((column * TAILLE) - OFFSETX + TAILLE / 2, -1 * (line * TAILLE) - OFFSETY - TAILLE / 2)
+            game_space.dot(round(TAILLE/2), 'white')
 
 done()

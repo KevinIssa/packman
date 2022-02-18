@@ -33,7 +33,7 @@ game_window.bgcolor('black')
 
 game_space.hideturtle()
 game_space.up()
-game_space.color('blue', 'blue')
+game_space.color('black', 'blue')
 
 game_terrain = read_matrix('packman_gamespace.txt')
 print(game_terrain)
